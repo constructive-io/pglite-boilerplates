@@ -1,5 +1,9 @@
 # pglite-boilerplates
 
+<p align="center" width="100%">
+  <img height="250" src="https://raw.githubusercontent.com/constructive-io/constructive/refs/heads/main/assets/outline-logo.svg" />
+</p>
+
 PGlite boilerplate templates for [pgpm](https://www.npmjs.com/package/@pgpmjs/cli), the PostgreSQL Package Manager. These templates scaffold workspaces and modules that test against **in-process [PGlite](https://pglite.dev)** (WASM Postgres) instead of a Postgres server — no `createdb`, no Docker, no services.
 
 This is the PGlite-only sibling of [`pgpm-boilerplates`](https://github.com/constructive-io/pgpm-boilerplates). It ships a single `pglite/` family (module + workspace) with every PGlite difference pre-wired, so a scaffolded project runs with just `pnpm install && pnpm test`.
