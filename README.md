@@ -35,7 +35,7 @@ Everything that differs from a server-backed `pgsql-test` project is pre-configu
 - **`pglite-test`** in place of `pgsql-test` (+ `@pgpmjs/pglite-adapter` and the `@electric-sql/pglite` peer).
 - **`NODE_OPTIONS=--experimental-vm-modules`** in every `test` script — PGlite loads a WASM ESM module.
 - **Generous timeout** — a single `testTimeout: 120000` in `jest.config.js` (no per-test inline timeouts), so PGlite's WASM cold-start on a fresh CI runner never trips Jest's default 5s hook timeout.
-- **Standard app roles seeded** — `getConnections()` creates `anonymous`/`authenticated`/`administrator`/`authenticated_client` for you, so `setContext({ role })` works with no manual `CREATE ROLE` (opt out with `pglite: { roles: false }`).
+- **Standard app roles seeded** — `getConnections()` creates `anonymous`/`authenticated`/`administrator` for you, so `setContext({ role })` works with no manual `CREATE ROLE` (opt out with `pglite: { roles: false }`).
 - **Services-free CI** — the workflow has no Postgres/Docker/MinIO services, no `pgpm tune`, no `admin-users bootstrap`, no global `pgpm` install. Just `pnpm install && pnpm test`.
 - **In-memory by default** — `getConnections()` spins up an in-memory PGlite; persist with `{ pglite: { dataDir: './.pglite' } }`.
 

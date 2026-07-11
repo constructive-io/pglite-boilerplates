@@ -30,7 +30,7 @@ The same `deploy/` / `verify/` / `revert/` scripts also run unchanged on a real 
 
 ### PGlite notes
 
-- **Roles.** `getConnections()` seeds the standard app roles (`anonymous`/`authenticated`/`administrator`/`authenticated_client`), so `db.setContext({ role })` works out of the box. Opt out with `pglite: { roles: false }` to manage your own (see the [`pglite-test`](https://www.npmjs.com/package/pglite-test) docs).
+- **Roles.** `getConnections()` seeds the standard app roles (`anonymous`/`authenticated`/`administrator`), so `db.setContext({ role })` works out of the box. Opt out with `pglite: { roles: false }` to manage your own (see the [`pglite-test`](https://www.npmjs.com/package/pglite-test) docs).
 - **Extensions.** WASM extensions (e.g. pgvector via `@electric-sql/pglite-pgvector`) are registered at construction with `pglite.extensions` and installed with `CREATE EXTENSION` in `extensionSql` — pgpm's `cleanSql` strips `CREATE EXTENSION` from migrations, so they're provisioned out-of-band.
 - **In-memory by default.** Persist with `getConnections({ pglite: { dataDir: './.pglite' } })`.
 
