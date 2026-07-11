@@ -1,0 +1,31 @@
+{
+  "name": "____moduleName____",
+  "version": "0.0.1",
+  "author": "____fullName____ <____email____>",
+  "description": "____moduleDesc____",
+  "homepage": "https://github.com/____username____/____repoName____",
+  "license": "____license____",
+  "publishConfig": {
+    "access": "____access____",
+    "directory": "dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/____username____/____repoName____"
+  },
+  "bugs": {
+    "url": "https://github.com/____username____/____repoName____/issues"
+  },
+  "scripts": {
+    "lint": "eslint . --fix",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watchAll"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.4",
+    "@pgpmjs/pglite-adapter": "^0.1.1",
+    "makage": "^0.3.0",
+    "pglite-test": "^0.1.1"
+  }
+}

@@ -1,0 +1,45 @@
+name: pglite tests
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        package:
+          - your-module-1
+          - your-module-2
+
+    # No services. PGlite runs in-process (WASM Postgres), so tests need nothing
+    # but Node + pnpm — no Postgres, no Docker, no MinIO, no pgpm bootstrap.
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm -r build
+
+      - name: Test ${{ matrix.package }}
+        run: cd ./packages/${{ matrix.package }} && pnpm test
