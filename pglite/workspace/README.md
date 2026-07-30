@@ -29,6 +29,21 @@ cd packages/your-module
 pnpm test:watch
 ```
 
+### Deploying
+
+`pgpm.json` sets `"engine": "pglite"`, so migration commands deploy into in-process PGlite — no server, no `createdb`:
+
+```sh
+# in-memory: proves the plan applies cleanly, then discarded
+pgpm deploy --package your-module --yes
+
+# persist to a data directory (and verify against it later)
+pgpm deploy --package your-module --yes --pglite=./.pglite
+pgpm verify --package your-module --pglite=./.pglite
+```
+
+Target a real Postgres server for one command with `--engine pg`.
+
 ### Prerequisites
 
 - Node.js 20+
