@@ -24,8 +24,8 @@
   "keywords": [],
   "devDependencies": {
     "@electric-sql/pglite": "^0.5.4",
-    "@pgpmjs/pglite-adapter": "^0.1.1",
-    "makage": "^0.3.0",
-    "pglite-test": "^0.2.2"
+    "@pgpmjs/pglite-adapter": "^1.10.7",
+    "makage": "^0.5.1",
+    "pglite-test": "^1.9.7"
   }
 }
